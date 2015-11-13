@@ -2961,6 +2961,13 @@ static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
 #include <numpy/arrayobject.h>
 
 
+SWIGINTERNINLINE PyObject*
+  SWIG_From_int  (int value)
+{
+  return PyInt_FromLong((long) value);
+}
+
+
 #include <limits.h>
 #if !defined(SWIG_NO_LLONG_MAX)
 # if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
@@ -3570,16 +3577,96 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 
 
 
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_int  (int value)
-{
-  return PyInt_FromLong((long) value);
-}
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN PyObject *_wrap_WebRtcVad_Create(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  VadInst *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":WebRtcVad_Create")) SWIG_fail;
+  result = (VadInst *)WebRtcVad_Create();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_VadInst, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WebRtcVad_Free(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  VadInst *arg1 = (VadInst *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:WebRtcVad_Free",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_VadInst, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebRtcVad_Free" "', argument " "1"" of type '" "VadInst *""'"); 
+  }
+  arg1 = (VadInst *)(argp1);
+  WebRtcVad_Free(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WebRtcVad_Init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  VadInst *arg1 = (VadInst *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:WebRtcVad_Init",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_VadInst, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebRtcVad_Init" "', argument " "1"" of type '" "VadInst *""'"); 
+  }
+  arg1 = (VadInst *)(argp1);
+  result = (int)WebRtcVad_Init(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WebRtcVad_set_mode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  VadInst *arg1 = (VadInst *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:WebRtcVad_set_mode",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_VadInst, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebRtcVad_set_mode" "', argument " "1"" of type '" "VadInst *""'"); 
+  }
+  arg1 = (VadInst *)(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WebRtcVad_set_mode" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)WebRtcVad_set_mode(arg1,arg2);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_processFrame(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   VadInst *arg1 = (VadInst *) 0 ;
@@ -3642,6 +3729,10 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
+	 { (char *)"WebRtcVad_Create", _wrap_WebRtcVad_Create, METH_VARARGS, NULL},
+	 { (char *)"WebRtcVad_Free", _wrap_WebRtcVad_Free, METH_VARARGS, NULL},
+	 { (char *)"WebRtcVad_Init", _wrap_WebRtcVad_Init, METH_VARARGS, NULL},
+	 { (char *)"WebRtcVad_set_mode", _wrap_WebRtcVad_set_mode, METH_VARARGS, NULL},
 	 { (char *)"processFrame", _wrap_processFrame, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
