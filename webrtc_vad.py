@@ -70,29 +70,9 @@ except AttributeError:
 
 
 
-def WebRtcVad_Create():
-  return _webrtc_vad.WebRtcVad_Create()
-WebRtcVad_Create = _webrtc_vad.WebRtcVad_Create
-
-def WebRtcVad_Free(*args):
-  return _webrtc_vad.WebRtcVad_Free(*args)
-WebRtcVad_Free = _webrtc_vad.WebRtcVad_Free
-
-def WebRtcVad_Init(*args):
-  return _webrtc_vad.WebRtcVad_Init(*args)
-WebRtcVad_Init = _webrtc_vad.WebRtcVad_Init
-
-def WebRtcVad_set_mode(*args):
-  return _webrtc_vad.WebRtcVad_set_mode(*args)
-WebRtcVad_set_mode = _webrtc_vad.WebRtcVad_set_mode
-
-def WebRtcVad_Process(*args):
-  return _webrtc_vad.WebRtcVad_Process(*args)
-WebRtcVad_Process = _webrtc_vad.WebRtcVad_Process
-
-def WebRtcVad_ValidRateAndFrameLength(*args):
-  return _webrtc_vad.WebRtcVad_ValidRateAndFrameLength(*args)
-WebRtcVad_ValidRateAndFrameLength = _webrtc_vad.WebRtcVad_ValidRateAndFrameLength
+def processFrame(*args):
+  return _webrtc_vad.processFrame(*args)
+processFrame = _webrtc_vad.processFrame
 # This file is compatible with both classic and new-style classes.
 
 
